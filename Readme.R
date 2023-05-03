@@ -14,4 +14,4 @@ t.test(wOkt ~ InOut, data.raw, var.eq = TRUE)
 t.test(wMar ~ InOut, data.raw)
 
 ## Boxplot vagy doboz ábra
-boxplot(wOkt ~ InOut, data.raw)
+boxplot(wOkt ~ InOut, data.raw, ylab = "WWC Október")
