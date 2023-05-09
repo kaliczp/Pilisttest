@@ -13,6 +13,11 @@ var.test(wOkt ~ InOut, data.raw)
 t.test(wOkt ~ InOut, data.raw, var.eq = TRUE)
 t.test(wMar ~ InOut, data.raw)
 
+## Szórás azonos, átlag szignifikánsan különbözik kívül-belül között
+var.test(wJul ~ InOut, data.raw)
+t.test(wJul ~ InOut, data.raw, var.eq = TRUE)
+boxplot(wJul ~ InOut, data.raw, ylab = "WWC Július")
+
 ## Boxplot vagy doboz ábra
 boxplot(wOkt ~ InOut, data.raw, ylab = "WWC Október")
 
