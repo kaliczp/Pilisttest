@@ -3,7 +3,7 @@ dir()
 ## Beolvasás
 library(readxl)
 data.raw <- as.data.frame(read_excel("F_L_2023_complete_soil_dataset_T_probara.xlsx"))
-names(data.raw) <- c("ID", "InOut", "wOkt", "wDec", "wFeb", "wMar", "meanh(cm)", "dens(db/m2)", "wJun", "wJul", "wAug", "wSept")
+names(data.raw) <- c("ID", "InOut", "wOkt", "wDec", "wFeb", "wMar", "meanh.cm", "dens.db.m2", "wJun", "wJul", "wAug", "wSept")
 for(ttcolname in c("wOkt", "wDec", "wFeb", "wMar"))
     data.raw[, ttcolname] <- round(as.numeric(data.raw[, ttcolname]),3)
 data.raw[, "InOut"] <- factor(data.raw[, "InOut"])
@@ -18,9 +18,18 @@ var.test(wJul ~ InOut, data.raw)
 t.test(wJul ~ InOut, data.raw, var.eq = TRUE)
 boxplot(wJul ~ InOut, data.raw, ylab = "WWC Július")
 
+## A meanh szórás és átlag is különböző
+var.test(meanh.cm ~ InOut, data.raw)
+t.test(meanh.cm ~ InOut, data.raw, var.eq = FALSE)
+boxplot(meanh.cm ~ InOut, data.raw, ylab = "")
+
+## A dens.db.m2 nincs szigifikáns különbség
+var.test(dens.db.m2 ~ InOut, data.raw)
+t.test(dens.db.m2 ~ InOut, data.raw, var.eq = TRUE)
+boxplot(dens.db.m2 ~ InOut, data.raw, ylab = "")
+
 ## Boxplot vagy doboz ábra
 boxplot(wOkt ~ InOut, data.raw, ylab = "WWC Október")
-
 
 ## Nedvesség változás
 WWC <- data.frame(InOut = rep(data.raw$InOut, 4), Month = factor(rep(c("Okt", "Dec", "Feb", "Mar"), each = nrow(data.raw))), WWC = c(data.raw$wOkt, data.raw$wDec, data.raw$wFeb, data.raw$wMar))
