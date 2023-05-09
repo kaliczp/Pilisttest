@@ -32,7 +32,7 @@ boxplot(dens.db.m2 ~ InOut, data.raw, ylab = "")
 boxplot(wOkt ~ InOut, data.raw, ylab = "WWC Október")
 
 ## Nedvesség változás
-WWC <- data.frame(InOut = rep(data.raw$InOut, 4), Month = factor(rep(c("Okt", "Dec", "Feb", "Mar"), each = nrow(data.raw))), WWC = c(data.raw$wOkt, data.raw$wDec, data.raw$wFeb, data.raw$wMar))
+WWC <- data.frame(InOut = rep(data.raw$InOut, 8), Month = factor(rep(c("Jún", "Júl", "Aug", "Szep", "Okt", "Dec", "Feb", "Mar"), each = nrow(data.raw))), WWC = c(data.raw$Jun, data.raw$Jul, data.raw$Aug, data.raw$Sept, data.raw$wOkt, data.raw$wDec, data.raw$wFeb, data.raw$wMar))
 
 boxplot(WWC ~ InOut, WWC)
 
