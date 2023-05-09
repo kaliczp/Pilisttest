@@ -3,7 +3,7 @@ dir()
 ## Beolvasás
 library(readxl)
 data.raw <- as.data.frame(read_excel("F_L_2023_complete_soil_dataset_T_probara.xlsx"))
-names(data.raw) <- c("ID", "InOut", "wOkt", "wDec", "wFeb", "wMar", "meanh(cm)", "Dens(db/m2)")
+names(data.raw) <- c("ID", "InOut", "wOkt", "wDec", "wFeb", "wMar", "meanh(cm)", "dens(db/m2)", "wJun", "wJul", "wAug", "wSept")
 for(ttcolname in c("wOkt", "wDec", "wFeb", "wMar"))
     data.raw[, ttcolname] <- round(as.numeric(data.raw[, ttcolname]),3)
 data.raw[, "InOut"] <- factor(data.raw[, "InOut"])
