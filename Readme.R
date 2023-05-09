@@ -52,3 +52,11 @@ axis(1, at = 1:8, labels = rep(c("I", "O"), 4))
 par(mgp = c(3,2.5,0))
 axis(1, at = c(1.5, 3.5, 5.5, 7.5), labels = c("Október", "December", "Február", "Március"), tcl = 0)
 par(mgp = c(3,1,0))
+
+## Másik adatbázis
+data2.raw <- as.data.frame(read_excel("F_L_porosity_T_proba.xlsx"))
+names(data2.raw) <- c("pont", "n", "InOut")
+boxplot(n ~ InOut, data2.raw)
+## F és t próba
+var.test(n ~ InOut, data2.raw)
+t.test(n ~ InOut, data2.raw, var.eq = TRUE)
