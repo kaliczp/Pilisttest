@@ -47,11 +47,16 @@ WWC$InOMonth  <- factor(paste0(WWC$InOut, WWC$Month),
 boxplot(WWC ~ InOMonth, WWC)
 
 ## havontára
+png("VWC_month.png", units = "cm", width = 18.5, height = 9, res = 300, pointsize = 11) # to file
+par(mar = c(5.1,4.1, 0.1, 0.1), las = 1)
 boxplot(WWC ~ InOMonth, WWC, xlab = "", xaxt = "n", col = c("#fc8d59", "#99d594"), ylab = "VWC")
 axis(1, at = 1:16, labels = rep(c("I", "O"), 8))
-par(mgp = c(3,2.5,0))
-axis(1, at = seq(1.5, by = 2, length.out = 8), labels = c("Június", "Július", "Augusztus", "Szeptember", "Október", "December", "Február", "Március"), tcl = 0)
+par(mgp = c(3,2.2,0))
+axis(1, at = seq(1.5, by = 2, length.out = 8), labels = c("Június", "Július", "Augusztus", "Szept.", "Október", "December", "Február", "Március"), tcl = 0)
+par(mgp = c(3,3.5,0))
+axis(1, at = c(6,14.5), lab = c(2022,2023), tcl = 0)
 par(mgp = c(3,1,0))
+dev.off() # to fle
 
 ## Másik adatbázis
 data2.raw <- as.data.frame(read_excel("F_L_porosity_T_proba.xlsx"))
