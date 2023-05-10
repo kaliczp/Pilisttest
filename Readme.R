@@ -47,7 +47,7 @@ WWC$InOMonth  <- factor(paste0(WWC$InOut, WWC$Month),
 boxplot(WWC ~ InOMonth, WWC)
 
 ## havontára
-boxplot(WWC ~ InOMonth, WWC, xlab = "", xaxt = "n")
+boxplot(WWC ~ InOMonth, WWC, xlab = "", xaxt = "n", col = c("#fc8d59", "#99d594"), ylab = "VWC")
 axis(1, at = 1:16, labels = rep(c("I", "O"), 8))
 par(mgp = c(3,2.5,0))
 axis(1, at = seq(1.5, by = 2, length.out = 8), labels = c("Június", "Július", "Augusztus", "Szeptember", "Október", "December", "Február", "Március"), tcl = 0)
